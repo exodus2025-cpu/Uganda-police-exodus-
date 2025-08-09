@@ -3,25 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uganda Police Exodus Sacco App</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Uganda Police Exodus Sacco</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#003087">
 </head>
 <body>
     <header>
-        <h1>Uganda Police Exodus Sacco</h1>
+        <h1>Exodus Sacco App</h1>
+        <select id="language-select">
+            <option value="en">English</option>
+            <option value="lg">Luganda</option>
+            <option value="luo">Luo</option>
+            <option value="sw">Kiswahili</option>
+            <option value="at">Ateso</option>
+            <option value="rn">Runyankole</option>
+            <option value="ln">Lunyoro</option>
+        </select>
+        <button id="speech-btn">🎤 Speak</button>
     </header>
     <main>
         <section id="savings">
-            <h2>Savings Withdrawal</h2>
-            <p>Current Balance: <span id="balance">0 UGX</span></p>
-            <button onclick="withdraw()">Withdraw</button>
+            <h2>Savings</h2>
+            <form id="savings-form">
+                <input type="text" id="force-number" placeholder="Force Number (UPF-XXXX-XXXX)" required>
+                <input type="text" id="ipps-number" placeholder="IPPS Number" required>
+                <input type="number" id="savings-amount" placeholder="Amount (Min UGX 30,000)" min="30000" required>
+                <input type="text" id="savings-reason" placeholder="Reason for Saving" required>
+                <input type="file" id="id-proof" accept="image/png,image/jpeg" required>
+                <textarea id="savings-comment" placeholder="Comments"></textarea>
+                <button type="submit">Save</button>
+            </form>
         </section>
-        <section id="loans">
-            <h2>Loan Products</h2>
-            <p>Apply for a loan here.</p>
-            <button onclick="applyLoan()">Apply Loan</button>
+        <section id="withdrawals">
+            <h2>Withdrawals</h2>
+            <form id="withdrawals-form">
+                <input type="text" id="withdraw-force-number" placeholder="Force Number" required>
+                <input type="text" id="withdraw-ipps-number" placeholder="IPPS Number" required>
+                <input type="number" id="withdraw-amount" placeholder="Amount (30,000 - 100,000,000)" min="30000" max="100000000" required>
+                <input type="text" id="withdraw-reason" placeholder="Reason for Withdrawal" required>
+                <input type="file" id="withdraw-id-proof" accept="image/png,image/jpeg" required>
+                <textarea id="withdraw-comment" placeholder="Comments"></textarea>
+                <button type="submit">Withdraw</button>
+            </form>
+        </section>
+        <section id="shares">
+            <h2>Shares</h2>
+            <form id="shares-form">
+                <input type="text" id="shares-force-number" placeholder="Force Number" required>
+                <input type="text" id="shares-ipps-number" placeholder="IPPS Number" required>
+                <input type="number" id="shares-amount" placeholder="Number of Shares (UGX 30,000 each)" min="1" required>
+                <input type="text" id="shares-reason" placeholder="Reason for Purchase" required>
+                <input type="file" id="shares-id-proof" accept="image/png,image/jpeg" required>
+                <textarea id="shares-comment" placeholder="Comments"></textarea>
+                <button type="submit">Buy Shares</button>
+            </form>
+        </section>
+        <section id="payments">
+            <h2>Utility Payments</h2>
+            <form id="payments-form">
+                <select id="payment-type">
+                    <option value="electricity">Electricity</option>
+                    <option value="airtime">Airtime</option>
+                    <option value="school">School Fees</option>
+                    <option value="transport">Transport</option>
+                    <option value="insurance">Insurance</option>
+                </select>
+                <select id="payment-gateway">
+                    <option value="mobile-money">Mobile Money</option>
+                    <option value="google-pay">Google Pay</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="binance">Binance</option>
+                </select>
+                <input type="number" id="payment-amount" placeholder="Amount" required>
+                <input type="text" id="payment-reason" placeholder="Reason for Payment" required>
+                <textarea id="payment-comment" placeholder="Comments"></textarea>
+                <button type="submit">Pay</button>
+            </form>
+        </section>
+        <section id="branches">
+            <h2>Branch & ATM Locator</h2>
+            <div id="map" style="height: 300px;"></div>
+        </section>
+        <section id="education">
+            <h2>Learn About Exodus Sacco</h2>
+            <div id="education-content"></div>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Phone: +256-700-123-456</p>
+            <p>Email: support@exodussacco.ug</p>
+            <textarea id="contact-comment" placeholder="Your Message"></textarea>
+            <button id="contact-submit">Send</button>
         </section>
     </main>
-    <script src="script.js"></script>
+    <script src="app.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </body>
-</html>
+    </html>
