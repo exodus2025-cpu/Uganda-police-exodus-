@@ -1,0 +1,22 @@
+{
+  "name": "exodus-sacco-pwa-prototype",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.26.2", // Updated to latest version
+    "leaflet": "^1.9.4",
+    "localforage": "^1.10.0",
+    "@fontsource/roboto": "^5.0.0", // Added for font support
+    "@fontsource/open-sans": "^5.0.0" // Added for font support
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
